@@ -4,7 +4,8 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui sql xml widgets
+requires(qtConfig(tableview))
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -25,13 +26,20 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
-        ./src/main.cpp \
-        ./src/mainwindow.cpp
+    src/main.cpp \
+    src/mainwindow.cpp \
+    src/dialog.cpp
 
 HEADERS += \
-        ./inc/mainwindow.h
+    inc/database.h \
+    inc/mainwindow.h \
+    inc/dialog.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    masterdetail.qrc
+

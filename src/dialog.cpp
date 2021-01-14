@@ -62,15 +62,19 @@ int Dialog::addNewArtist(const QString &name)
     QSqlTableModel *artistModel = model->relationModel(2);
     QSqlRecord record;
 
-    int id= generateAlbumId();
+    int id = generateAlbumId();
 
     QSqlField f1("id", QVariant::Int);
-    QSqlField f2("artist",QVariant::Int);
+    QSqlField f2("artist",QVariant::String);
     QSqlField f3("albumcount", QVariant::Int);
 
+    f1.setValue(QVariant(id));
+    f2.setValue(QVariant(name));
+    f3.setValue(QVariant(0));
+    record.append(f1);
+    record.append(f2);
+    record.append(f3);
 
-
-
-
-
+    artistModel->insertRecord(-1,record);
+    return id;
 }

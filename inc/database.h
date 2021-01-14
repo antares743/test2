@@ -37,4 +37,15 @@ static bool createConnection()
 
     query.exec("insert into  albums values(1,'spending time with morgan',1"
                                            "2003)");
+    query.exec("insert to albums values(2,'A temporary Drive ',1,2005)");
+    query.exec("insert into albums values(3,'...The great october sound',2,"
+                                          "2002)");
+    query.exec("insert into albums values(4,'stray dogs',2,2003)");
+    query.exec("insert into albums values(5"
+               "'one day you'll dance for me ,new york city',2,2004)");
+    query.exec("insert into albums values(6,'Ompa til du D\xc3\xb8r',3,2001)");
+    query.exec("insert into albums values(7,'evrig pnt',3,2002)");
+    query.exec("insert into albums values(8,'Maestro',3,2005)");
+
+    return true;
 }
